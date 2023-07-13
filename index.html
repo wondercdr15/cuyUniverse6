@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" />
+        <title>cuyuniversitassesi6</title>
+    </head>
+    <body class="dark">
+        <div class="container">
+        <nav>
+            <a onclick="reRander()" id="rander">Home</a>
+            <a onclick="darkMode()" id="modeDark">Mode</a>
+            <a onclick="summerMode()" id="summer">Summermode</a>
+            
+        </nav>
+        <h1>sesi 6</h1>
+        <p class="info" id="info"></p>
+
+        </div>
+
+    <!-- initializing function(javascript) -->
+        <script>
+    
+        
+      let body = document.body;
+      let info = document.getElementById("info");
+      let mode = document.getElementById("modeDark");
+      let home = document.getElementById("rander");
+      let summermode = document.getElementById("summer");
+
+      const darkLimit = 5;
+      const summerLimit = 6;
+      let darkCounter = 0;
+      let summerCounter = 0;
+      let darkRemainingLeft;
+      let summerRemainingLeft;
+
+      function darkMode() {
+        if(darkRemainingLeft == 1){
+          info.textContent = "💥 JATAH FITUR DARKMODE ANDA SUDAH HABIS 💥";
+          mode.style.display = 'none';
+
+          return;
+        }
+        if(darkRemainingLeft == 2){
+         mode.textContent = 'Mode dark';
+        }
+        if(darkRemainingLeft == 3){
+         mode.textContent = 'Mode Light';
+        }
+        if(darkRemainingLeft == 4){
+         mode.textContent = 'Mode Dark';
+        }
+
+        darkCounter += 1;
+        darkRemainingLeft = darkLimit - darkCounter;
+
+        //render ke info element
+        info.textContent = `Darkmode dipakai ${darkCounter}x, tersisa ${darkRemainingLeft}`;
+
+        body.classList.toggle("dark");
+      }
+      function summerMode() {
+        if(summerRemainingLeft == 1){
+            info.textContent = "💥 JATAH FITUR SUMMERMODE ANDA SUDAH HABIS 💥";
+            summermode.style.display= 'none';
+            home.textContent = "RESTART";
+            return;
+        }
+        if(summerRemainingLeft == 2){
+            summermode.textContent = 'Summer Good';
+        }
+        if(summerRemainingLeft == 3){
+            summermode.textContent = 'Summer Bad';
+        }
+        if(summerRemainingLeft == 5){
+            summermode.textContent = 'Summer Good';
+        }
+        if(summerRemainingLeft == 5){
+            summermode.textContent = 'Summer Bad';
+        }
+        
+        summerCounter += 1;
+        summerRemainingLeft =summerLimit - summerCounter;
+
+        //render ke info element
+        info.textContent = `Summermode dipakai ${summerCounter}x, tersisa ${summerRemainingLeft}`;
+
+        body.classList.toggle("dark2");
+
+
+      }
+
+      function reRander() {
+        location.reload();
+      }
+    
+        </script>
+    </body>
+</html>
